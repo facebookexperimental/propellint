@@ -37,8 +37,10 @@ auto isLHSOfAssignment() {
 
 auto isPartOfIncrementOrDecrementExpr() {
   return anyOf(
-      hasAncestor(unaryOperator(anyOf(hasOperatorName("++"), hasOperatorName("--")))),
-      hasAncestor(cxxOperatorCallExpr(anyOf(hasOperatorName("++"), hasOperatorName("--")))));
+      hasAncestor(
+          unaryOperator(anyOf(hasOperatorName("++"), hasOperatorName("--")))),
+      hasAncestor(cxxOperatorCallExpr(
+          anyOf(hasOperatorName("++"), hasOperatorName("--")))));
 }
 } // namespace
 
