@@ -34,6 +34,8 @@
 #include <clang/Tooling/JSONCompilationDatabase.h>
 #include <clang/Tooling/Tooling.h>
 
+#include <omp.h>
+
 #include <range/v3/all.hpp>
 
 #include <simdjson.h>
@@ -154,7 +156,8 @@ int main(int argc, char* argv[]) {
 
   const auto matcher = Matcher::get();
 
-#pragma omp parallel for num_threads(jobs)
+  omp_set_num_threads(jobs);
+#pragma omp parallel for
   for (auto i = 0; i < targets.size(); ++i) {
     const auto& target = targets.at(i);
     const auto& sites = targetToCallSitesMap.at(target);

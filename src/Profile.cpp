@@ -145,8 +145,6 @@ Profile::getOperatorBracketLocations(
       continue;
     }
     const auto caller = stack[i - 1];
-    const auto mapType = stack[i].function.substr(
-        0, stack[i].function.length() - strlen("::operator[]"));
     const CallSite location(caller.filename, caller.line);
 
     if (isInsertStack(stack, i)) {

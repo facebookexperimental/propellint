@@ -20,6 +20,7 @@ project(PropelLint)
 
 find_package(Boost 1.60 COMPONENTS program_options REQUIRED)
 find_package(Clang REQUIRED CONFIG)
+find_package(OpenMP REQUIRED)
 
 message(STATUS "Using LLVM/Clang version ${LLVM_PACKAGE_VERSION}.")
 
@@ -54,6 +55,7 @@ target_link_libraries(
   propellint
   Boost::program_options
   clangAST clangASTMatchers clangFrontend clangTooling
+  OpenMP::OpenMP_CXX
   fmt
   range-v3
   simdjson
