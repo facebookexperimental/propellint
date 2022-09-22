@@ -18,7 +18,7 @@ jobs:
     
     - name: Install dependencies
       run: |
-           sudo apt install -y libboost-all-dev
+           sudo apt install -y libboost-program-options-dev
            sudo apt install -y llvm-12 clang-12 libclang-12-dev
 
     - name: Configure CMake
